@@ -6,7 +6,7 @@ public class Product {
 
     private int sellIn;
 
-    public int quality;
+    private int quality;
 
     public Product(String name, int sellIn, int quality) {
         this.name = name;
@@ -24,6 +24,14 @@ public class Product {
 
     public void setSellIn(int sellIn) {
         this.sellIn = sellIn;
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
     }
 
     @Override
