@@ -15,7 +15,7 @@ class GildedRoseTest {
     void should_update_item_correctly(TestFixture testFixture) {
         Product product = createItem(testFixture.name, testFixture.sellIn, testFixture.quality);
 
-        new GildedRose(new Product[]{product}).update_quality();
+        new GildedRose(new Product[]{product}).updateAllProductsPassOneDay();
 
         Product expectedProduct = createItem(testFixture.name, testFixture.updatedSellIn, testFixture.updatedQuality);
         assertThat(product.toString()).isEqualTo(expectedProduct.toString());

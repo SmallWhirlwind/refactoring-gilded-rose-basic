@@ -7,7 +7,7 @@ class GildedRose {
         this.products = products;
     }
 
-    public void update_quality() {
+    public void updateAllProductsPassOneDay() {
         for (int i = 0; i < products.length; i++) {
             if (!products[i].getName().equals("Aged Brie")
                     && !products[i].getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
