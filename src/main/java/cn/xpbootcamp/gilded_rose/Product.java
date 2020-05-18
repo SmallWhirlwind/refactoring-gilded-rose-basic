@@ -2,7 +2,7 @@ package cn.xpbootcamp.gilded_rose;
 
 public class Product {
 
-    public String name;
+    private String name;
 
     public int sellIn;
 
@@ -12,6 +12,10 @@ public class Product {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
