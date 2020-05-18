@@ -4,18 +4,18 @@ public class Product {
 
     public String name;
 
-    public int sell_in;
+    public int sellIn;
 
     public int quality;
 
-    public Product(String name, int sell_in, int quality) {
+    public Product(String name, int sellIn, int quality) {
         this.name = name;
-        this.sell_in = sell_in;
+        this.sellIn = sellIn;
         this.quality = quality;
     }
 
     @Override
     public String toString() {
-        return this.name + ", " + this.sell_in + ", " + this.quality;
+        return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
