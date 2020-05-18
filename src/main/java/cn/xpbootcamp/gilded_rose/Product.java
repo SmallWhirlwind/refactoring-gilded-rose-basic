@@ -4,7 +4,7 @@ public class Product {
 
     private String name;
 
-    public int sellIn;
+    private int sellIn;
 
     public int quality;
 
@@ -16,6 +16,14 @@ public class Product {
 
     public String getName() {
         return name;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public void setSellIn(int sellIn) {
+        this.sellIn = sellIn;
     }
 
     @Override
