@@ -13,11 +13,8 @@ class GildedRose {
 
     public void updateAllProductsPassOneDay() {
         for (int i = 0; i < products.length; i++) {
-            if (!products[i].getName().equals(AGED_BRIE)
-                    && !products[i].getName().equals(BACKSTAGE_PASSES)) {
-                if (!products[i].getName().equals(SULFURAS)) {
+            if (this.isCommonProduct(products[i])) {
                     products[i].setQuality(products[i].getQuality() - 1);
-                }
             }
             if (products[i].getName().equals(AGED_BRIE)) {
                 products[i].setQuality(products[i].getQuality() + 1);
@@ -54,6 +51,12 @@ class GildedRose {
 
             resetLegitimateQuality(products[i]);
         }
+    }
+
+    private boolean isCommonProduct(Product product) {
+        return !product.getName().equals(AGED_BRIE)
+                && !product.getName().equals(BACKSTAGE_PASSES)
+                && !product.getName().equals(SULFURAS);
     }
 
     private void resetLegitimateQuality(Product product) {
