@@ -20,23 +20,27 @@ class GildedRose {
                 updateAgedBriePassOneDay(products[i]);
             }
             if (products[i].getName().equals(BACKSTAGE_PASSES)) {
-                products[i].setQuality(products[i].getQuality() + 1);
-
-                if (products[i].getSellIn() < 11) {
-                    products[i].setQuality(products[i].getQuality() + 1);
-                }
-
-                if (products[i].getSellIn() < 6) {
-                    products[i].setQuality(products[i].getQuality() + 1);
-                }
-                products[i].setSellIn(products[i].getSellIn() - 1);
-
-                if (products[i].getSellIn() < 0) {
-                    products[i].setQuality(0);
-                }
+                updateBackStagePassesPassOneDay(products[i]);
             }
 
             resetLegitimateQuality(products[i]);
+        }
+    }
+
+    private void updateBackStagePassesPassOneDay(Product product) {
+        product.setQuality(product.getQuality() + 1);
+
+        if (product.getSellIn() < 11) {
+            product.setQuality(product.getQuality() + 1);
+        }
+
+        if (product.getSellIn() < 6) {
+            product.setQuality(product.getQuality() + 1);
+        }
+        product.setSellIn(product.getSellIn() - 1);
+
+        if (product.getSellIn() < 0) {
+            product.setQuality(0);
         }
     }
 
