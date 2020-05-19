@@ -35,15 +35,14 @@ class GildedRose {
                     products[i].setQuality(products[i].getQuality() + 1);
                 }
                 products[i].setSellIn(products[i].getSellIn() - 1);
+
+                if (products[i].getSellIn() < 0) {
+                    products[i].setQuality(0);
+                }
             }
 
             if (products[i].getSellIn() < 0) {
                 if (!products[i].getName().equals(AGED_BRIE)) {
-                    if (!products[i].getName().equals(BACKSTAGE_PASSES)) {
-                        if (!products[i].getName().equals(SULFURAS)) { }
-                    } else {
-                        products[i].setQuality(0);
-                    }
                 } else {
                     products[i].setQuality(products[i].getQuality() + 1);
                 }
