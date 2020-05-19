@@ -23,7 +23,7 @@ public class Product {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    public void updateBackStagePassesPassOneDay() {
+    private void updateBackStagePassesPassOneDay() {
         this.quality += 1;
 
         if (this.sellIn < 11) {
@@ -40,7 +40,7 @@ public class Product {
         }
     }
 
-    public void updateAgedBriePassOneDay() {
+    private void updateAgedBriePassOneDay() {
         this.quality += 1;
         this.sellIn -= 1;
 
@@ -49,7 +49,7 @@ public class Product {
         }
     }
 
-    public void updateCommonProductPassOneDay() {
+    private void updateCommonProductPassOneDay() {
         this.quality -= 1;
         this.sellIn -= 1;
         if (this.sellIn < 0) {
@@ -57,13 +57,13 @@ public class Product {
         }
     }
 
-    public boolean isCommonProduct() {
+    private boolean isCommonProduct() {
         return !this.name.equals(AGED_BRIE)
                 && !this.name.equals(BACKSTAGE_PASSES)
                 && !this.name.equals(SULFURAS);
     }
 
-    public void resetLegitimateQuality() {
+    private void resetLegitimateQuality() {
         if (this.quality > 50) {
             this.quality = 50;
         }
@@ -72,11 +72,24 @@ public class Product {
         }
     }
 
-    public boolean isAgedBrieProduct() {
+    private boolean isAgedBrieProduct() {
         return this.name.equals(AGED_BRIE);
     }
 
-    public boolean isBackStagePassesProduct() {
+    private boolean isBackStagePassesProduct() {
         return this.name.equals(BACKSTAGE_PASSES);
+    }
+
+    public void updateProductPassOneDay() {
+        if (this.isCommonProduct()) {
+            this.updateCommonProductPassOneDay();
+        }
+        if (this.isAgedBrieProduct()) {
+            this.updateAgedBriePassOneDay();
+        }
+        if (this.isBackStagePassesProduct()) {
+            this.updateBackStagePassesPassOneDay();
+        }
+        this.resetLegitimateQuality();
     }
 }

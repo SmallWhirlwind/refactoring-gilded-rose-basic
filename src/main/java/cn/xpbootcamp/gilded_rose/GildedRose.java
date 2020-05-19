@@ -10,16 +10,7 @@ class GildedRose {
 
     public void updateAllProductsPassOneDay() {
         for (Product product : products) {
-            if (product.isCommonProduct()) {
-                product.updateCommonProductPassOneDay();
-            }
-            if (product.isAgedBrieProduct()) {
-                product.updateAgedBriePassOneDay();
-            }
-            if (product.isBackStagePassesProduct()) {
-                product.updateBackStagePassesPassOneDay();
-            }
-            product.resetLegitimateQuality();
+            product.updateProductPassOneDay();
         }
     }
 
