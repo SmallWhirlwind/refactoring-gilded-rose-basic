@@ -12,18 +12,18 @@ class GildedRose {
     }
 
     public void updateAllProductsPassOneDay() {
-        for (int i = 0; i < products.length; i++) {
-            if (this.isCommonProduct(products[i])) {
-                updateCommonProductPassOneDay(products[i]);
+        for (Product product : products) {
+            if (this.isCommonProduct(product)) {
+                updateCommonProductPassOneDay(product);
             }
-            if (products[i].getName().equals(AGED_BRIE)) {
-                updateAgedBriePassOneDay(products[i]);
+            if (product.getName().equals(AGED_BRIE)) {
+                updateAgedBriePassOneDay(product);
             }
-            if (products[i].getName().equals(BACKSTAGE_PASSES)) {
-                updateBackStagePassesPassOneDay(products[i]);
+            if (product.getName().equals(BACKSTAGE_PASSES)) {
+                updateBackStagePassesPassOneDay(product);
             }
 
-            resetLegitimateQuality(products[i]);
+            resetLegitimateQuality(product);
         }
     }
 
