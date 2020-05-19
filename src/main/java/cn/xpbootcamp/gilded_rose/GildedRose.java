@@ -18,17 +18,19 @@ class GildedRose {
                 if (!products[i].getName().equals(SULFURAS)) {
                     products[i].setQuality(products[i].getQuality() - 1);
                 }
-            } else {
+            }
+            if (products[i].getName().equals(AGED_BRIE)) {
+                products[i].setQuality(products[i].getQuality() + 1);
+            }
+            if (products[i].getName().equals(BACKSTAGE_PASSES)) {
                 products[i].setQuality(products[i].getQuality() + 1);
 
-                if (products[i].getName().equals(BACKSTAGE_PASSES)) {
-                    if (products[i].getSellIn() < 11) {
-                        products[i].setQuality(products[i].getQuality() + 1);
-                    }
+                if (products[i].getSellIn() < 11) {
+                    products[i].setQuality(products[i].getQuality() + 1);
+                }
 
-                    if (products[i].getSellIn() < 6) {
-                        products[i].setQuality(products[i].getQuality() + 1);
-                    }
+                if (products[i].getSellIn() < 6) {
+                    products[i].setQuality(products[i].getQuality() + 1);
                 }
             }
 
