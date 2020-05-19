@@ -18,18 +18,6 @@ public class Product {
         this.quality = quality;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getSellIn() {
-        return sellIn;
-    }
-
-    public int getQuality() {
-        return quality;
-    }
-
     @Override
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
@@ -38,16 +26,16 @@ public class Product {
     public void updateBackStagePassesPassOneDay() {
         this.quality += 1;
 
-        if (this.getSellIn() < 11) {
+        if (this.sellIn < 11) {
             this.quality += 1;
         }
 
-        if (this.getSellIn() < 6) {
+        if (this.sellIn < 6) {
             this.quality += 1;
         }
         this.sellIn -= 1;
 
-        if (this.getSellIn() < 0) {
+        if (this.sellIn < 0) {
             this.quality = 0;
         }
     }
@@ -56,7 +44,7 @@ public class Product {
         this.quality += 1;
         this.sellIn -= 1;
 
-        if (this.getSellIn() < 0) {
+        if (this.sellIn < 0) {
             this.quality += 1;
         }
     }
@@ -64,31 +52,31 @@ public class Product {
     public void updateCommonProductPassOneDay() {
         this.quality -= 1;
         this.sellIn -= 1;
-        if (this.getSellIn() < 0) {
+        if (this.sellIn < 0) {
             this.quality -= 1;
         }
     }
 
     public boolean isCommonProduct() {
-        return !this.getName().equals(AGED_BRIE)
-                && !this.getName().equals(BACKSTAGE_PASSES)
-                && !this.getName().equals(SULFURAS);
+        return !this.name.equals(AGED_BRIE)
+                && !this.name.equals(BACKSTAGE_PASSES)
+                && !this.name.equals(SULFURAS);
     }
 
     public void resetLegitimateQuality() {
-        if (this.getQuality() > 50) {
+        if (this.quality > 50) {
             this.quality = 50;
         }
-        if (this.getQuality() < 0) {
+        if (this.quality < 0) {
             this.quality = 0;
         }
     }
 
     public boolean isAgedBrieProduct() {
-        return this.getName().equals(AGED_BRIE);
+        return this.name.equals(AGED_BRIE);
     }
 
     public boolean isBackStagePassesProduct() {
-        return this.getName().equals(BACKSTAGE_PASSES);
+        return this.name.equals(BACKSTAGE_PASSES);
     }
 }
