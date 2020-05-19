@@ -14,10 +14,12 @@ class GildedRose {
     public void updateAllProductsPassOneDay() {
         for (int i = 0; i < products.length; i++) {
             if (this.isCommonProduct(products[i])) {
-                    products[i].setQuality(products[i].getQuality() - 1);
+                products[i].setQuality(products[i].getQuality() - 1);
+                products[i].setSellIn(products[i].getSellIn() - 1);
             }
             if (products[i].getName().equals(AGED_BRIE)) {
                 products[i].setQuality(products[i].getQuality() + 1);
+                products[i].setSellIn(products[i].getSellIn() - 1);
             }
             if (products[i].getName().equals(BACKSTAGE_PASSES)) {
                 products[i].setQuality(products[i].getQuality() + 1);
@@ -29,9 +31,6 @@ class GildedRose {
                 if (products[i].getSellIn() < 6) {
                     products[i].setQuality(products[i].getQuality() + 1);
                 }
-            }
-
-            if (!products[i].getName().equals(SULFURAS)) {
                 products[i].setSellIn(products[i].getSellIn() - 1);
             }
 
